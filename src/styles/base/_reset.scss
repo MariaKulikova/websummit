@@ -4,11 +4,38 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: $font-family-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+  background: radial-gradient(circle at center, $color-bg-light-secondary 0%, $color-text-secondary 100%);
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 300px,
+        $color-text-secondary 300px,
+        $color-text-secondary 301px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 300px,
+        $color-text-secondary 300px,
+        $color-text-secondary 301px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 h1, h2, h3, h4, h5, h6, p {

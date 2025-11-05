@@ -1,5 +1,66 @@
 @import './variables';
 
+// Typography mixins
+@mixin typography-body {
+  font-size: $font-size-body-mobile;
+  font-weight: $font-weight-regular;
+  line-height: 1.6;
+
+  @include desktop {
+    font-size: $font-size-body;
+  }
+}
+
+@mixin typography-subtitle {
+  font-size: $font-size-subtitle-mobile;
+  font-weight: $font-weight-semibold;
+  line-height: 1.5;
+
+  @include desktop {
+    font-size: $font-size-subtitle;
+  }
+}
+
+@mixin typography-h3 {
+  font-size: $font-size-h3-mobile;
+  font-weight: $font-weight-bold;
+  line-height: 1.4;
+
+  @include desktop {
+    font-size: $font-size-h3;
+  }
+}
+
+@mixin typography-h2 {
+  font-size: $font-size-h2-mobile;
+  font-weight: $font-weight-bold;
+  line-height: 1.3;
+
+  @include desktop {
+    font-size: $font-size-h2;
+  }
+}
+
+@mixin typography-h1 {
+  font-size: $font-size-h1-mobile;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+
+  @include desktop {
+    font-size: $font-size-h1;
+  }
+}
+
+@mixin typography-display {
+  font-size: $font-size-display-mobile;
+  font-weight: $font-weight-bold;
+  line-height: 1.1;
+
+  @include desktop {
+    font-size: $font-size-display;
+  }
+}
+
 // Flexbox mixins
 @mixin flex-center {
   display: flex;
@@ -22,6 +83,21 @@
   background: linear-gradient(135deg, rgba(16, 24, 40, 0.5) 0%, rgba(30, 41, 57, 0.3) 100%);
 }
 
+// Glassmorphism effect
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px 0 rgba(128, 128, 128, 0.1);
+}
+
+@mixin glass-effect-highlighted {
+  @include glass-effect;
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
 // Responsive breakpoints
 @mixin mobile {
   @media (max-width: 640px) {
@@ -41,8 +117,10 @@
   }
 }
 
-// Button mixin
-@mixin button-base {
+// Button mixins
+@mixin button-primary {
+  @include gradient-primary;
+  color: $color-text-primary;
   padding: $spacing-sm $spacing-lg;
   border-radius: $radius-sm;
   font-weight: 600;
@@ -55,19 +133,17 @@
   }
 }
 
-@mixin button-primary {
-  @include button-base;
-  @include gradient-primary;
-  color: $color-text-primary;
-}
-
 @mixin button-outline {
-  @include button-base;
   background: transparent;
-  border: 1px solid $color-border;
-  color: $color-text-primary;
+  border: 1px solid $color-text-dark;
+  color: $color-text-dark;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  transition: all $transition-base;
+  cursor: pointer;
 
   &:hover {
-    border-color: lighten($color-border, 10%);
+    opacity: 0.8;
   }
 }

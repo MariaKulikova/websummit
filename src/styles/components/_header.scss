@@ -2,16 +2,17 @@
 @import '../base/mixins';
 
 .header {
-  background-color: $color-bg-light;
-  border-bottom: 1px solid rgba($color-border, 0.2);
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
 
   &__container {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 $spacing-sm;
+    padding: 1rem $spacing-sm 0.5rem;
 
     @include desktop {
-      padding: 0 $spacing-lg;
+      padding: 1rem $spacing-lg 0.5rem;
     }
   }
 
@@ -19,7 +20,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5rem;
   }
 
   &__logo-wrapper {
