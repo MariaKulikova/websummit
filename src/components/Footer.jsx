@@ -1,12 +1,12 @@
 const Footer = () => {
   return (
-    <footer className="bg-[#0a0e27] border-t border-gray-800/50 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center">
-          <div className="mb-6">
-            <img src="/assets/Logo_SG.svg" alt="ShiftGears" className="h-10 brightness-0 invert mx-auto" />
+    <footer className="footer">
+      <div className="footer__container">
+        <div className="footer__content">
+          <div className="footer__logo-wrapper">
+            <img src="/assets/Logo_SG.svg" alt="ShiftGears" className="footer__logo" />
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="footer__copyright">
             © 2025 ShiftGears. All rights reserved.
           </p>
         </div>

@@ -1,0 +1,39 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.header {
+  background-color: $color-bg-light;
+  border-bottom: 1px solid rgba($color-border, 0.2);
+
+  &__container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 $spacing-sm;
+
+    @include desktop {
+      padding: 0 $spacing-lg;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 3rem;
+    // No filter needed for light background - logo shows in original colors
+  }
+
+  &__button {
+    @include button-outline;
+    padding: 0.625rem $spacing-md;
+  }
+}

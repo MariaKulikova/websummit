@@ -1,15 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig(({ command, mode }) => {
   const isProduction = mode === 'production'
   const isGitHubPages = process.env.GITHUB_PAGES === 'true' || process.env.CI
-  
+
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react()],
     base: '/',
     resolve: {
       alias: {

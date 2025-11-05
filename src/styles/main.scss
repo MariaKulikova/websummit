@@ -1,0 +1,11 @@
+// Base
+@import './base/variables';
+@import './base/reset';
+@import './base/mixins';
+
+// Components
+@import './components/header';
+@import './components/footer';
+
+// Pages
+@import './pages/home';
