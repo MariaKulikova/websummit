@@ -24,10 +24,6 @@
     max-width: 80rem;
     margin: 0 auto;
     padding: 0 $spacing-sm;
-
-    @include desktop {
-      padding: 0 $spacing-sm;
-    }
   }
 
   &__grid {
@@ -75,12 +71,7 @@
     flex-direction: column;
     gap: $spacing-sm;
 
-    @include tablet {
-      flex-direction: row;
-      gap: $spacing-md;
-    }
-
-    @include desktop {
+    @media (min-width: 640px) {
       flex-direction: row;
       gap: $spacing-md;
     }
@@ -120,42 +111,23 @@
     }
   }
 
-  &__circle-outer {
-    position: absolute;
-    inset: 0;
-    border-radius: $radius-full;
-  }
-
-  &__circle-middle {
-    display: none;
-  }
-
   &__circle-inner {
     position: absolute;
     inset: $spacing-2xl;
-    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-    background:
-      radial-gradient(
-        ellipse at center,
-        $color-gradient-start 0%,
-        $color-gradient-start 30%,
-        rgba($color-gradient-start, 0.6) 50%,
-        rgba($color-gradient-start, 0.3) 70%,
-        rgba($color-gradient-start, 0.1) 85%,
-        transparent 100%
-      );
-    filter: blur(20px);
-    animation: pulse 6s ease-in-out infinite, blob-morph 20s ease-in-out infinite;
+    border-radius: 63% 37% 54% 46% / 55% 32% 52% 45%;
+    @include glass-effect;
+    background: radial-gradient(circle at center, transparent 0%, rgba($color-primary, 0.02) 30%, rgba($color-primary, 0.05) 45%, rgba($color-primary, 0.1) 60%, rgba($color-primary, 0.2) 75%, rgba($color-primary, 0.3) 90%, rgba($color-primary, 0.4) 100%);
+    animation: blob-morph 20s ease-in-out infinite;
   }
 }
 
 // Section base
 .section {
-  padding: $spacing-lg 0;
+  padding: $spacing-xl 0;
   color: $color-text-dark;
 
   @include desktop {
-    padding: $spacing-xl 0;
+    padding: $spacing-3xl 0;
   }
 
   &__container {
@@ -251,7 +223,7 @@
 
   &__input {
     background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid $color-border;
+    border: 1px solid $color-text-secondary;
     color: $color-text-dark;
     padding: $spacing-sm $spacing-md;
     border-radius: $radius-sm;
@@ -279,10 +251,6 @@
 
 // How It Works Section
 .how-it-works {
-  &__emoji {
-    display: none; // Hide emojis
-  }
-
   &__card-title {
     @include typography-display;
     color: $color-gradient-start;
@@ -358,111 +326,7 @@
   }
 }
 
-// CTA Section
-.cta {
-  padding: $spacing-lg 0;
-  padding-bottom: $spacing-lg;
-  color: $color-text-dark;
-
-  &__container {
-    max-width: 56rem;
-    margin: 0 auto;
-    padding: 0 $spacing-sm;
-
-    @include desktop {
-      padding: 0 $spacing-lg;
-    }
-  }
-
-  &__box {
-    @include glass-effect;
-    border-radius: $radius-xl;
-    padding: $spacing-lg;
-    text-align: center;
-
-    @include tablet {
-      padding: $spacing-3xl;
-    }
-
-    @include desktop {
-      border-radius: $radius-2xl;
-      padding: $spacing-5xl;
-    }
-  }
-
-  &__title {
-    @include typography-h1;
-    margin-bottom: $spacing-md;
-
-    @include tablet {
-      margin-bottom: $spacing-lg;
-    }
-
-    @include desktop {
-      margin-bottom: $spacing-2xl;
-    }
-  }
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: $spacing-md;
-
-    @include tablet {
-      flex-direction: row;
-      gap: $spacing-md;
-      margin-bottom: $spacing-xl;
-    }
-  }
-
-  &__input {
-    background-color: rgba(16, 24, 40, 0.8);
-    border: 1px solid $color-border;
-    color: $color-text-primary;
-    padding: $spacing-sm $spacing-md;
-    border-radius: $radius-sm;
-    width: 100%;
-    transition: border-color $transition-base;
-
-    @include tablet {
-      width: 24rem;
-    }
-
-    &:focus {
-      outline: none;
-      border-color: $color-primary;
-    }
-
-    &::placeholder {
-      color: $color-text-secondary;
-    }
-  }
-
-  &__button {
-    @include button-primary;
-    padding: $spacing-sm $spacing-lg;
-    white-space: nowrap;
-  }
-
-  &__note {
-    @include typography-body;
-    color: $color-text-dark;
-  }
-}
-
 // Animations
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
 @keyframes blob-morph {
   0%, 100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;

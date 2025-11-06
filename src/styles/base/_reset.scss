@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: $font-family-base;
@@ -9,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   position: relative;
-  background: radial-gradient(circle at center, $color-bg-light-secondary 0%, $color-text-secondary 100%);
+  background: radial-gradient(circle at center, $color-bg-light-secondary 10%, $color-text-secondary 90%);
 
   &::after {
     content: '';

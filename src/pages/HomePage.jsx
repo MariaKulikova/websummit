@@ -1,4 +1,9 @@
+import { scrollToElement } from '@/utils/scroll';
+
 const HomePage = () => {
+  const scrollToCtaTop = () => scrollToElement('.cta-top');
+  const scrollToVideo = () => scrollToElement('.why-it-matters');
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -16,10 +21,10 @@ const HomePage = () => {
                 No more boring "live chats" Turn browsing into a conversation
               </p>
               <div className="hero__buttons">
-                <button className="hero__button-primary">
+                <button className="hero__button-primary" onClick={scrollToCtaTop}>
                   Join the Alpha
                 </button>
-                <button className="hero__button-outline">
+                <button className="hero__button-outline" onClick={scrollToVideo}>
                   Watch 30s Demo
                 </button>
               </div>
@@ -28,8 +33,6 @@ const HomePage = () => {
             {/* Right Visual */}
             <div className="hero__visual">
               <div className="hero__circles">
-                <div className="hero__circle-outer"></div>
-                <div className="hero__circle-middle"></div>
                 <div className="hero__circle-inner"></div>
               </div>
             </div>
@@ -43,19 +46,16 @@ const HomePage = () => {
           <div className="section__grid-3">
             {/* Speak */}
             <div>
-              <div className="how-it-works__emoji">🗣️</div>
               <h3 className="how-it-works__card-title">Speak</h3>
               <p className="how-it-works__card-text">Voice, gestures, or text — the AI understands it all</p>
             </div>
             {/* Tap */}
             <div>
-              <div className="how-it-works__emoji">☝️</div>
               <h3 className="how-it-works__card-title">Tap</h3>
               <p className="how-it-works__card-text">Users find what they want faster with intuitive guidance</p>
             </div>
             {/* Type */}
             <div>
-              <div className="how-it-works__emoji">💬</div>
               <h3 className="how-it-works__card-title">Type</h3>
               <p className="how-it-works__card-text">Seamless, conversational experiences without clunky chatbots</p>
             </div>
@@ -66,7 +66,6 @@ const HomePage = () => {
       {/* Why It Matters Section */}
       <section className="section why-it-matters">
         <div className="section__container">
-          <h2 className="section__title">Why It Matters</h2>
           <div className="why-it-matters__content">
             <div className="why-it-matters__video-wrapper">
               <video

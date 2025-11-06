@@ -1,4 +1,8 @@
+import { scrollToElement } from '@/utils/scroll';
+
 const Header = () => {
+  const scrollToCtaTop = () => scrollToElement('.cta-top');
+
   return (
     <header className="header">
       <div className="header__container">
@@ -7,7 +11,7 @@ const Header = () => {
             <img src="/assets/Logo_SG.svg" alt="ShiftGears" className="header__logo" />
           </div>
           <div>
-            <button className="header__button">
+            <button className="header__button" onClick={scrollToCtaTop}>
               Join the Alpha
             </button>
           </div>
