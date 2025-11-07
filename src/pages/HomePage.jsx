@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { scrollToElement } from '@/utils/scroll';
 import { initBlobScrollEffect } from '@/utils/scrollEffects';
+import Features from '@/components/Features';
 
 const HomePage = () => {
   const scrollToCtaTop = () => scrollToElement('.cta-top');
@@ -48,6 +49,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Features Section */}
+      <Features />
 
       {/* How It Works Section */}
       <section className="section how-it-works">
