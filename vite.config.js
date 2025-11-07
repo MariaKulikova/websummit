@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: '/',
+    base: '/websummit/',
     publicDir: 'public',
     resolve: {
       alias: {
