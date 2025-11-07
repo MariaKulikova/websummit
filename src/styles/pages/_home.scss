@@ -10,7 +10,7 @@
 // Hero Section
 .hero {
   position: relative;
-  color: $color-text-dark;
+  color: $color-text-primary;
   overflow: hidden;
   padding-top: $spacing-sm;
   padding-bottom: $spacing-sm;
@@ -24,27 +24,29 @@
     max-width: 80rem;
     margin: 0 auto;
     padding: 0 $spacing-sm;
+
+    @include desktop {
+      padding: 0 $spacing-lg;
+    }
   }
 
   &__grid {
-    @include glass-effect;
-    border-radius: $radius-xl;
     display: grid;
     grid-template-columns: 1fr;
     gap: $spacing-lg;
     align-items: center;
-    padding: $spacing-lg;
 
     @include desktop {
       grid-template-columns: repeat(2, 1fr);
       gap: $spacing-2xl;
-      padding: $spacing-2xl;
-      border-radius: $radius-2xl;
     }
   }
 
   &__content {
     text-align: left;
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
   }
 
   &__title {
@@ -53,16 +55,16 @@
   }
 
   &__highlight-blue {
-    color: $color-text-dark;
+    color: $color-secondary;
   }
 
   &__highlight-purple {
-    color: $color-text-dark;
+    color: $color-primary;
   }
 
   &__description {
     @include typography-body;
-    color: $color-text-dark;
+    color: $color-text-secondary;
     margin-bottom: $spacing-lg;
   }
 
@@ -112,19 +114,58 @@
   }
 
   &__circle-inner {
-    position: absolute;
-    inset: $spacing-2xl;
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    width: 16rem;
+    height: 16rem;
     border-radius: 63% 37% 54% 46% / 55% 32% 52% 45%;
     @include glass-effect;
-    background: radial-gradient(circle at center, transparent 0%, rgba($color-primary, 0.02) 30%, rgba($color-primary, 0.05) 45%, rgba($color-primary, 0.1) 60%, rgba($color-primary, 0.2) 75%, rgba($color-primary, 0.3) 90%, rgba($color-primary, 0.4) 100%);
+    background: radial-gradient(circle at center, transparent 0%, rgba($color-secondary, 0.02) 30%, rgba($color-secondary, 0.05) 45%, rgba($color-secondary, 0.1) 60%, rgba($color-secondary, 0.2) 75%, rgba($color-secondary, 0.3) 90%, rgba($color-secondary, 0.4) 100%);
     animation: blob-morph 20s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: auto;
+    transition: opacity 0.1s ease-out, transform 0.3s ease-out, cursor 0.2s ease;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet {
+      width: 20rem;
+      height: 20rem;
+    }
+
+    @include desktop {
+      width: 24rem;
+      height: 24rem;
+      top: 15%;
+      right: 15%;
+    }
+  }
+
+  &__mic-icon {
+    width: 4rem;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+
+    @include tablet {
+      width: 5rem;
+    }
+
+    @include desktop {
+      width: 6rem;
+    }
   }
 }
 
 // Section base
 .section {
   padding: $spacing-xl 0;
-  color: $color-text-dark;
+  color: $color-text-primary;
+  position: relative;
+  z-index: 2;
 
   @include desktop {
     padding: $spacing-3xl 0;
@@ -149,11 +190,11 @@
   &__grid-3 {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $spacing-xl;
+    gap: $spacing-lg;
 
     @include desktop {
       grid-template-columns: repeat(3, 1fr);
-      gap: $spacing-3xl;
+      gap: $spacing-xl;
     }
   }
 }
@@ -178,13 +219,14 @@
   }
 
   &__arrow-wrapper {
-    width: 6rem;
+    width: 4rem;
     flex-shrink: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     @include desktop {
-      width: 10rem;
+      width: 6rem;
     }
   }
 
@@ -192,6 +234,8 @@
     width: 100%;
     height: auto;
     display: block;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   &__content {
@@ -206,7 +250,7 @@
 
   &__note {
     @include typography-body;
-    color: $color-text-dark;
+    color: $color-text-secondary;
     margin-bottom: $spacing-lg;
 
     @include desktop {
@@ -222,9 +266,9 @@
   }
 
   &__input {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid $color-text-secondary;
-    color: $color-text-dark;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: $color-text-primary;
     padding: $spacing-sm $spacing-md;
     border-radius: $radius-sm;
     width: 100%;
@@ -233,7 +277,8 @@
 
     &:focus {
       outline: none;
-      border-color: $color-primary;
+      border-color: $color-secondary;
+      background-color: rgba(255, 255, 255, 0.08);
     }
 
     &::placeholder {
@@ -251,6 +296,17 @@
 
 // How It Works Section
 .how-it-works {
+  &__card {
+    @include glass-effect;
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+
+    @include desktop {
+      padding: $spacing-2xl;
+      border-radius: $radius-xl;
+    }
+  }
+
   &__card-title {
     @include typography-display;
     color: $color-gradient-start;
@@ -259,7 +315,7 @@
 
   &__card-text {
     @include typography-body;
-    color: $color-text-dark;
+    color: $color-text-secondary;
   }
 }
 
@@ -315,6 +371,13 @@
     gap: $spacing-xs;
   }
 
+  &__arrow {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+  }
+
   &__item-title {
     @include typography-h3;
     line-height: 1.2;
@@ -322,7 +385,7 @@
 
   &__item-text {
     @include typography-body;
-    color: $color-text-dark;
+    color: $color-text-secondary;
   }
 }
 
@@ -339,5 +402,17 @@
   }
   75% {
     border-radius: 40% 60% 60% 40% / 30% 70% 40% 60%;
+  }
+}
+
+@keyframes blob-click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1);
   }
 }

@@ -28,12 +28,11 @@
   }
 
   &__logo {
-    height: 3rem;
+    height: 2.5rem;
     // No filter needed for light background - logo shows in original colors
   }
 
   &__button {
-    @include button-outline;
-    padding: 0.625rem $spacing-md;
+    @include button-primary;
   }
 }

@@ -3,7 +3,7 @@
 
 .footer {
   background-color: transparent;
-  color: $color-text-dark;
+  color: $color-text-primary;
   position: relative;
   z-index: 10;
   padding: $spacing-lg 0;
@@ -36,7 +36,7 @@
   }
 
   &__copyright {
-    color: $color-text-dark;
+    color: $color-text-primary;
     @include typography-body;
   }
 }

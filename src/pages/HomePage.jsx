@@ -1,8 +1,15 @@
+import { useEffect } from 'react';
 import { scrollToElement } from '@/utils/scroll';
+import { initBlobScrollEffect } from '@/utils/scrollEffects';
 
 const HomePage = () => {
   const scrollToCtaTop = () => scrollToElement('.cta-top');
   const scrollToVideo = () => scrollToElement('.why-it-matters');
+
+  useEffect(() => {
+    const cleanup = initBlobScrollEffect();
+    return cleanup;
+  }, []);
 
   return (
     <div className="home">
@@ -33,7 +40,9 @@ const HomePage = () => {
             {/* Right Visual */}
             <div className="hero__visual">
               <div className="hero__circles">
-                <div className="hero__circle-inner"></div>
+                <div className="hero__circle-inner">
+                  <img src="/assets/MicGlass.svg?v=3" alt="" className="hero__mic-icon" />
+                </div>
               </div>
             </div>
           </div>
@@ -45,17 +54,17 @@ const HomePage = () => {
         <div className="section__container">
           <div className="section__grid-3">
             {/* Speak */}
-            <div>
+            <div className="how-it-works__card">
               <h3 className="how-it-works__card-title">Speak</h3>
               <p className="how-it-works__card-text">Voice, gestures, or text — the AI understands it all</p>
             </div>
             {/* Tap */}
-            <div>
+            <div className="how-it-works__card">
               <h3 className="how-it-works__card-title">Tap</h3>
               <p className="how-it-works__card-text">Users find what they want faster with intuitive guidance</p>
             </div>
             {/* Type */}
-            <div>
+            <div className="how-it-works__card">
               <h3 className="how-it-works__card-title">Type</h3>
               <p className="how-it-works__card-text">Seamless, conversational experiences without clunky chatbots</p>
             </div>
@@ -81,16 +90,19 @@ const HomePage = () => {
             <div className="why-it-matters__items">
               {/* More intuitive */}
               <div className="why-it-matters__item">
+                <img src="/assets/Arrow.svg?v=5" alt="" className="why-it-matters__arrow" />
                 <h3 className="why-it-matters__item-title">More intuitive</h3>
                 <p className="why-it-matters__item-text">Users find what they want faster</p>
               </div>
               {/* More immersive */}
               <div className="why-it-matters__item">
+                <img src="/assets/Arrow.svg?v=5" alt="" className="why-it-matters__arrow" />
                 <h3 className="why-it-matters__item-title">More immersive</h3>
                 <p className="why-it-matters__item-text">The web feels alive</p>
               </div>
               {/* More connected */}
               <div className="why-it-matters__item">
+                <img src="/assets/Arrow.svg?v=5" alt="" className="why-it-matters__arrow" />
                 <h3 className="why-it-matters__item-title">More connected</h3>
                 <p className="why-it-matters__item-text">Websites finally listen and respond</p>
               </div>
@@ -104,15 +116,7 @@ const HomePage = () => {
         <div className="section__container">
           <div className="cta-top__card">
             <div className="cta-top__arrow-wrapper">
-              <svg className="cta-top__arrow" viewBox="0 0 270 161" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M269.554 0.0358887V50.5311H256.24V22.771L228.48 50.5311L219.059 41.119L246.819 13.359H219.059V0.0358887H269.554Z" fill="url(#paint0_linear_cta)"/>
-                <defs>
-                  <linearGradient id="paint0_linear_cta" x1="273.537" y1="-7.02704" x2="211.236" y2="70.4496" gradientUnits="userSpaceOnUse">
-                    <stop offset="0.115385" stopColor="#2A01F8"/>
-                    <stop offset="0.524038" stopColor="#2F83FF"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+              <img src="/assets/ArrowGlass.svg" alt="" className="cta-top__arrow" />
             </div>
             <div className="cta-top__content">
               <h2 className="cta-top__title">

@@ -103,8 +103,8 @@
 
 @mixin button-outline {
   background: transparent;
-  border: 1px solid $color-text-dark;
-  color: $color-text-dark;
+  border: 1px solid $color-text-primary;
+  color: $color-text-primary;
   padding: $spacing-sm $spacing-lg;
   border-radius: $radius-sm;
   font-weight: 600;
