@@ -29,8 +29,10 @@ jobs:
     - name: Build
       run: pnpm build
 
-    - name: Add .nojekyll file
-      run: touch ./dist/.nojekyll
+    - name: Add .nojekyll and 404.html
+      run: |
+        touch ./dist/.nojekyll
+        cp ./dist/index.html ./dist/404.html
 
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
