@@ -1,0 +1,44 @@
+@import './variables';
+
+// Animated organic gradient blobs
+body {
+  background: $color-bg-dark;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+      radial-gradient(ellipse 1200px 900px at 25% 25%, rgba($color-primary, 0.5) 0%, transparent 50%),
+      radial-gradient(ellipse 1000px 1000px at 75% 75%, rgba($color-secondary, 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse 900px 700px at 50% 50%, rgba($color-tertiary, 0.35) 0%, transparent 50%);
+    filter: blur(40px);
+    animation: blob-float 45s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes blob-float {
+    0% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    20% {
+      transform: translate(25%, -15%) rotate(20deg) scale(1.15);
+    }
+    40% {
+      transform: translate(-20%, 30%) rotate(-25deg) scale(0.9);
+    }
+    60% {
+      transform: translate(30%, 10%) rotate(30deg) scale(1.1);
+    }
+    80% {
+      transform: translate(-15%, -20%) rotate(-15deg) scale(0.95);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+  }
+}

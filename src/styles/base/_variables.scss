@@ -1,7 +1,8 @@
 // Colors
 $color-primary: #2A01F8;
 $color-secondary: #2F83FF;
-$color-bg-dark: #0a0e27;
+$color-tertiary: #03cb35;
+$color-bg-dark: #030407;
 $color-bg-light: #ffffff;
 $color-bg-light-secondary: #F2F2F6;
 $color-bg-card: rgba(16, 24, 40, 0.5);
@@ -39,7 +40,7 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 // Font sizes - Desktop
-$font-size-body: 1rem;        // 16px - regular
+$font-size-body: 1.1rem;        // 16px - regular
 $font-size-subtitle: 1.25rem; // 20px - semibold
 $font-size-h3: 1.5rem;        // 24px - bold
 $font-size-h2: 2rem;          // 32px - bold
@@ -52,7 +53,7 @@ $font-size-subtitle-mobile: 1rem;    // 16px
 $font-size-h3-mobile: 1.25rem;       // 20px
 $font-size-h2-mobile: 1.5rem;        // 24px
 $font-size-h1-mobile: 2rem;          // 32px
-$font-size-display-mobile: 2.75rem;  // 44px
+$font-size-display-mobile: 2.5rem;   // 40px
 
 // Border radius
 $radius-sm: 0.5rem;

@@ -1,7 +1,7 @@
 const LinksPage = () => {
   const links = [
     {
-      title: 'Try Demo',
+      title: 'Demo',
       url: 'https://demo.shiftgears.ai',
       description: 'Experience voice AI in action'
     },
@@ -22,7 +22,7 @@ const LinksPage = () => {
     },
     {
       title: 'Email Us',
-      url: 'mailto:hello@shiftgears.ai',
+      url: 'mailto:websummit@shiftgears.ai',
       description: 'Get in touch'
     }
   ];

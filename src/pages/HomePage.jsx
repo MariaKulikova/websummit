@@ -21,15 +21,13 @@ const HomePage = () => {
             {/* Left Content */}
             <div className="hero__content">
               <h1 className="hero__title">
-                Meet the AI that gives your website{' '}
-                <span className="hero__highlight-blue">a true</span>{' '}
-                <span className="hero__highlight-purple">voice</span>
+                Meet the AI that gives&nbsp;your&nbsp;website a&nbsp;voice
               </h1>
               <p className="hero__description">
                 No more boring "live chats" Turn browsing into a conversation
               </p>
               <div className="hero__buttons">
-                <button className="hero__button-primary" onClick={scrollToCtaTop}>
+                <button className="hero__button-outline" onClick={scrollToCtaTop}>
                   Join the Alpha
                 </button>
                 <button className="hero__button-outline" onClick={scrollToVideo}>
@@ -60,17 +58,17 @@ const HomePage = () => {
             {/* Speak */}
             <div className="how-it-works__card">
               <h3 className="how-it-works__card-title">Speak</h3>
-              <p className="how-it-works__card-text">Voice, gestures, or text — the AI understands it all</p>
+              <p className="how-it-works__card-text">Voice, or text — a seamless, conversational experience without clunky chatbots.</p>
             </div>
-            {/* Tap */}
+            {/* Navigate */}
             <div className="how-it-works__card">
-              <h3 className="how-it-works__card-title">Tap</h3>
-              <p className="how-it-works__card-text">Users find what they want faster with intuitive guidance</p>
+              <h3 className="how-it-works__card-title">Navigate</h3>
+              <p className="how-it-works__card-text">Help users find what they want faster with auto-navigation. A true multi-modal experience.</p>
             </div>
-            {/* Type */}
+            {/* Act */}
             <div className="how-it-works__card">
-              <h3 className="how-it-works__card-title">Type</h3>
-              <p className="how-it-works__card-text">Seamless, conversational experiences without clunky chatbots</p>
+              <h3 className="how-it-works__card-title">Act</h3>
+              <p className="how-it-works__card-text">Empower your audience to do more by giving your AI agent the necessary tools.</p>
             </div>
           </div>
         </div>
@@ -124,7 +122,7 @@ const HomePage = () => {
             </div>
             <div className="cta-top__content">
               <h2 className="cta-top__title">
-                Be part of the next web experience
+                Be part of the next web's evolution
               </h2>
               <p className="cta-top__note">
                 Limited alpha access — launching at Web Summit
@@ -135,7 +133,7 @@ const HomePage = () => {
                   placeholder="Enter your email"
                   className="cta-top__input"
                 />
-                <button className="cta-top__button">
+                <button className="cta-top__button-outline">
                   Get Early Access
                 </button>
               </div>

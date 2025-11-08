@@ -12,8 +12,8 @@
   position: relative;
   color: $color-text-primary;
   overflow: hidden;
-  padding-top: $spacing-sm;
-  padding-bottom: $spacing-sm;
+  padding-top: $spacing-xs;
+  padding-bottom: $spacing-md;
 
   @include desktop {
     padding-top: $spacing-xl;
@@ -21,12 +21,12 @@
   }
 
   &__container {
-    max-width: 80rem;
+    max-width: 90rem;
     margin: 0 auto;
-    padding: 0 $spacing-sm;
+    padding: 0 $spacing-md;
 
     @include desktop {
-      padding: 0 $spacing-lg;
+      padding: 0 $spacing-xl;
     }
   }
 
@@ -51,7 +51,8 @@
 
   &__title {
     @include typography-display;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-md;
+    font-weight: $font-weight-bold;
   }
 
   &__highlight-blue {
@@ -65,7 +66,7 @@
   &__description {
     @include typography-body;
     color: $color-text-secondary;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-md;
   }
 
   &__buttons {
@@ -120,8 +121,14 @@
     width: 16rem;
     height: 16rem;
     border-radius: 63% 37% 54% 46% / 55% 32% 52% 45%;
-    @include glass-effect;
-    background: radial-gradient(circle at center, transparent 0%, rgba($color-secondary, 0.02) 30%, rgba($color-secondary, 0.05) 45%, rgba($color-secondary, 0.1) 60%, rgba($color-secondary, 0.2) 75%, rgba($color-secondary, 0.3) 90%, rgba($color-secondary, 0.4) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     animation: blob-morph 20s ease-in-out infinite;
     z-index: 1;
     pointer-events: auto;
@@ -162,7 +169,7 @@
 
 // Section base
 .section {
-  padding: $spacing-xl 0;
+  padding: $spacing-md 0;
   color: $color-text-primary;
   position: relative;
   z-index: 2;
@@ -174,7 +181,7 @@
   &__container {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 $spacing-sm;
+    padding: 0 $spacing-md;
 
     @include desktop {
       padding: 0 $spacing-lg;
@@ -219,23 +226,20 @@
   }
 
   &__arrow-wrapper {
-    width: 4rem;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &__arrow {
+    width: 4rem;
+    height: auto;
+    display: block;
 
     @include desktop {
       width: 6rem;
     }
-  }
-
-  &__arrow {
-    width: 100%;
-    height: auto;
-    display: block;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
   }
 
   &__content {
@@ -292,6 +296,13 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
+
+  &__button-outline {
+    @include button-outline;
+    padding: $spacing-sm $spacing-lg;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 }
 
 // How It Works Section
@@ -309,7 +320,7 @@
 
   &__card-title {
     @include typography-display;
-    color: $color-gradient-start;
+    color: $color-text-primary;
     margin-bottom: $spacing-md;
   }
 

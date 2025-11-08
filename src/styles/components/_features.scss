@@ -1,67 +1,92 @@
+@import '../base/variables';
+@import '../base/mixins';
+
 .features {
-  padding: 80px 0;
-  background: linear-gradient(180deg, #0a0e27 0%, #1a1f3a 100%);
+  padding: $spacing-md 0;
+  color: $color-text-primary;
+  position: relative;
+  z-index: 2;
+
+  @include desktop {
+    padding: $spacing-3xl 0;
+  }
 
   &__container {
-    max-width: 1200px;
+    max-width: 80rem;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 $spacing-md;
+
+    @include desktop {
+      padding: 0 $spacing-lg;
+    }
+  }
+
+  &__wrapper {
+    @include glass-effect;
+    border-radius: $radius-lg;
+    padding: $spacing-md;
+
+    @include desktop {
+      border-radius: $radius-xl;
+      padding: $spacing-2xl;
+    }
   }
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
 
-    @media (min-width: 768px) {
+    @include desktop {
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      gap: $spacing-xl;
     }
   }
 
   &__card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 32px;
-    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    padding: $spacing-md;
+    transition: all $transition-base;
+
+    @include desktop {
+      padding: $spacing-xl;
+    }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(99, 102, 241, 0.3);
-      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: $radius-lg;
     }
   }
 
   &__icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    color: #6366f1;
+    justify-content: flex-start;
+    margin-bottom: $spacing-md;
+    color: $color-text-primary;
 
     svg {
-      width: 28px;
-      height: 28px;
+      width: 40px;
+      height: 40px;
     }
   }
 
   &__title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 12px;
+    font-size: $font-size-subtitle-mobile;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-sm;
     line-height: 1.4;
+
+    @include desktop {
+      font-size: $font-size-subtitle;
+    }
   }
 
   &__description {
-    font-size: 15px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.6);
+    @include typography-body;
+    color: $color-text-secondary;
     margin: 0;
   }
 }

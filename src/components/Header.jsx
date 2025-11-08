@@ -10,11 +10,6 @@ const Header = () => {
           <div className="header__logo-wrapper">
             <img src="/assets/Logo_SG.svg" alt="ShiftGears" className="header__logo" />
           </div>
-          <div>
-            <button className="header__button" onClick={scrollToCtaTop}>
-              Join the Alpha
-            </button>
-          </div>
         </div>
       </div>
     </header>

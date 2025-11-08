@@ -9,10 +9,10 @@
   &__container {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 1rem $spacing-sm 0.5rem;
+    padding: 2rem $spacing-sm 0.5rem;
 
     @include desktop {
-      padding: 1rem $spacing-lg 0.5rem;
+      padding: 3rem $spacing-lg 0.5rem;
     }
   }
 
@@ -28,7 +28,11 @@
   }
 
   &__logo {
-    height: 2.5rem;
+    height: 3rem;
+
+    @include desktop {
+      height: 3.5rem;
+    }
     // No filter needed for light background - logo shows in original colors
   }
 
