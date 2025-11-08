@@ -16,12 +16,17 @@ const HomePage = () => {
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
+        {/* Floating Microphone - independent from hero grid */}
+        <div className="hero__circle-inner">
+          <img src="/assets/MicGlass.svg?v=3" alt="" className="hero__mic-icon" />
+        </div>
+
         <div className="hero__container">
           <div className="hero__grid">
             {/* Left Content */}
             <div className="hero__content">
               <h1 className="hero__title">
-                Meet the AI that gives&nbsp;your&nbsp;website a&nbsp;voice
+                Meet the AI that gives your website a&nbsp;voice
               </h1>
               <p className="hero__description">
                 No more boring "live chats" Turn browsing into a conversation
@@ -36,12 +41,9 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Right Visual */}
+            {/* Right Visual - removed for cleaner layout */}
             <div className="hero__visual">
               <div className="hero__circles">
-                <div className="hero__circle-inner">
-                  <img src="/assets/MicGlass.svg?v=3" alt="" className="hero__mic-icon" />
-                </div>
               </div>
             </div>
           </div>

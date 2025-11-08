@@ -2,7 +2,7 @@
 @import '../base/mixins';
 
 .features {
-  padding: $spacing-md 0;
+  padding: $spacing-lg 0;
   color: $color-text-primary;
   position: relative;
   z-index: 2;
@@ -14,7 +14,11 @@
   &__container {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 $spacing-md;
+    padding: 0 $spacing-sm;
+
+    @include tablet {
+      padding: 0 $spacing-lg;
+    }
 
     @include desktop {
       padding: 0 $spacing-lg;
@@ -47,15 +51,9 @@
     background: transparent;
     border: none;
     padding: $spacing-md;
-    transition: all $transition-base;
 
     @include desktop {
       padding: $spacing-xl;
-    }
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: $radius-lg;
     }
   }
 
