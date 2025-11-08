@@ -14,7 +14,7 @@ body {
     background:
       radial-gradient(ellipse 1200px 800px at 25% 25%, rgba($color-primary, 0.3) 0%, transparent 50%),
       radial-gradient(ellipse 1000px 2000px at 75% 75%, rgba($color-secondary, 0.3) 0%, transparent 60%),
-      radial-gradient(ellipse 1400px 1000px at 50% 50%, rgba($color-secondary, 0.4) 0%, transparent 40%);
+      radial-gradient(ellipse 1400px 1000px at 50% 50%, rgba($color-secondary, 0.2) 0%, transparent 30%);
     filter: blur(50px);
     animation: blob-float 50s ease-in-out infinite;
     pointer-events: none;
