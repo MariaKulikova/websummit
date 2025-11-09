@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import './AnimatedBackground.scss';
 
 const AnimatedBackground = () => {
   const canvasRef = useRef(null);
@@ -78,38 +77,6 @@ const AnimatedBackground = () => {
       speed: 0.0008, // Увеличена скорость вращения
       opacity: 1, // Всегда видимые
     }));
-
-    const drawMicrophone = (x, y, size, pulse) => {
-      const scale = 1 + pulse * 0.15;
-      const actualSize = size * scale;
-
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(scale, scale);
-
-      ctx.strokeStyle = hexToRgba(PRIMARY_COLOR, 0.9);
-      ctx.lineWidth = 2.5;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-
-      // Капсула микрофона
-      ctx.beginPath();
-      ctx.roundRect(-actualSize * 0.15, -actualSize * 0.25, actualSize * 0.3, actualSize * 0.4, actualSize * 0.15);
-      ctx.stroke();
-
-      // Держатель
-      ctx.beginPath();
-      ctx.arc(0, actualSize * 0.15, actualSize * 0.25, 0, Math.PI, false);
-      ctx.stroke();
-
-      // Линия вниз
-      ctx.beginPath();
-      ctx.moveTo(0, actualSize * 0.15);
-      ctx.lineTo(0, actualSize * 0.35);
-      ctx.stroke();
-
-      ctx.restore();
-    };
 
     const drawCard = (x, y, size, opacity) => {
       ctx.save();

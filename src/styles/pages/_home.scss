@@ -123,11 +123,8 @@
     @include flex-center;
     display: none;
 
-    @include tablet {
-      display: flex;
-    }
-
     @include desktop {
+      display: flex;
       justify-content: flex-end;
     }
   }
@@ -156,7 +153,7 @@
     align-items: center;
     justify-content: center;
 
-    // Мобильная версия - отдельный блок под хиро
+    // Мобильная версия - отдельный блок под хиро, центрированный
     margin: 0 auto;
     margin-top: -4rem;
     margin-bottom: -4rem;
@@ -164,24 +161,20 @@
     height: 26rem;
 
     @media (min-width: 640px) {
-      // Планшет - абсолютная позиция справа сверху
-      position: absolute;
-      top: 8%;
-      bottom: auto;
-      left: auto;
-      right: 6%;
-      margin: 0;
-      transform: none;
+      // Планшет - центрированный под хиро
       width: 32rem;
       height: 32rem;
+      margin-top: -4rem;
     }
 
     @media (min-width: 1024px) {
       // Десктоп - справа сверху
+      position: absolute;
       width: 40rem;
       height: 40rem;
       top: 3%;
       right: 3%;
+      margin: 0;
     }
   }
 
@@ -392,6 +385,11 @@
     @include typography-display;
     color: $color-text-primary;
     margin-bottom: $spacing-md;
+    font-size: 2rem; // 32px для мобильных
+
+    @include desktop {
+      font-size: 3rem; // 48px для десктопа
+    }
   }
 
   &__card-text {
@@ -409,9 +407,11 @@
     color: $color-text-primary;
     margin-bottom: $spacing-lg;
     text-align: left;
+    font-size: 2rem; // 32px для мобильных
 
     @include desktop {
       margin-bottom: $spacing-xl;
+      font-size: 3rem; // 48px для десктопа
     }
   }
 
