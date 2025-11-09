@@ -1,9 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { scrollToElement } from '@/utils/scroll';
 import { initBlobScrollEffect } from '@/utils/scrollEffects';
 import Features from '@/components/Features';
+import AnimatedBackground from '@/components/AnimatedBackground';
+import Button from '@/components/Button';
 
 const HomePage = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const scrollToCtaTop = () => scrollToElement('.cta-top');
   const scrollToVideo = () => scrollToElement('.why-it-matters');
 
@@ -12,15 +17,40 @@ const HomePage = () => {
     return cleanup;
   }, []);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!email) return;
+
+    try {
+      // Google Apps Script Web App URL - замени на свой URL после деплоя
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwsVIcRNdB6h3-IvfndoH00bxqCDdf826wg1btMHoTde7pHMXUMKyXN6GWIoOHOsjGzyA/exec';
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          timestamp: new Date().toISOString()
+        })
+      });
+
+      setIsSubmitted(true);
+      setEmail('');
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      // Показываем сообщение даже если произошла ошибка
+      setIsSubmitted(true);
+    }
+  };
+
   return (
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
-        {/* Floating Microphone - independent from hero grid */}
-        <div className="hero__circle-inner">
-          <img src="/assets/MicGlass.svg?v=3" alt="" className="hero__mic-icon" />
-        </div>
-
         <div className="hero__container">
           <div className="hero__grid">
             {/* Left Content */}
@@ -32,12 +62,12 @@ const HomePage = () => {
                 No more boring "live chats" Turn browsing into a conversation
               </p>
               <div className="hero__buttons">
-                <button className="hero__button-outline" onClick={scrollToCtaTop}>
+                <Button variant="primary" onClick={scrollToCtaTop}>
                   Join the Alpha
-                </button>
-                <button className="hero__button-outline" onClick={scrollToVideo}>
-                  Watch 30s Demo
-                </button>
+                </Button>
+                <Button variant="outline" onClick={scrollToVideo}>
+                  Watch Demo
+                </Button>
               </div>
             </div>
 
@@ -50,8 +80,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <Features />
+      {/* Animated Background with microphone - below hero on mobile */}
+      <div className="hero__circle-inner">
+        <AnimatedBackground />
+      </div>
 
       {/* How It Works Section */}
       <section className="section how-it-works">
@@ -70,15 +102,19 @@ const HomePage = () => {
             {/* Act */}
             <div className="how-it-works__card">
               <h3 className="how-it-works__card-title">Act</h3>
-              <p className="how-it-works__card-text">Empower your audience to do more by giving your AI agent the necessary tools.</p>
+              <p className="how-it-works__card-text">Empower your visitors to do more without leaving your website.</p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Features Section */}
+      <Features />
+
       {/* Why It Matters Section */}
       <section className="section why-it-matters">
         <div className="section__container">
+          <h2 className="why-it-matters__section-title">Watch Demo</h2>
           <div className="why-it-matters__content">
             <div className="why-it-matters__video-wrapper">
               <video
@@ -119,9 +155,6 @@ const HomePage = () => {
       <section className="section cta-top">
         <div className="section__container">
           <div className="cta-top__card">
-            <div className="cta-top__arrow-wrapper">
-              <img src="/assets/ArrowGlass.svg" alt="" className="cta-top__arrow" />
-            </div>
             <div className="cta-top__content">
               <h2 className="cta-top__title">
                 Be part of the next web's evolution
@@ -129,16 +162,27 @@ const HomePage = () => {
               <p className="cta-top__note">
                 Limited alpha access — launching at Web Summit
               </p>
-              <div className="cta-top__form">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="cta-top__input"
-                />
-                <button className="cta-top__button-outline">
-                  Get Early Access
-                </button>
-              </div>
+              {!isSubmitted ? (
+                <form className="cta-top__form" onSubmit={handleSubmit}>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="cta-top__input"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  <Button variant="primary" className="cta-top__button" type="submit">
+                    Get Early Access
+                  </Button>
+                </form>
+              ) : (
+                <div className="cta-top__form">
+                  <p className="cta-top__success-message">
+                    Thanks! We will write you soon
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

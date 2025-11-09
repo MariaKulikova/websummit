@@ -6,7 +6,8 @@
   color: $color-text-primary;
   position: relative;
   z-index: 10;
-  padding: $spacing-lg 0;
+  padding-top: $spacing-xs;
+  padding-bottom: $spacing-lg;
 
   &__container {
     max-width: 80rem;
@@ -36,7 +37,7 @@
   }
 
   &__copyright {
-    color: $color-text-primary;
+    color: $color-text-secondary;
     @include typography-body;
   }
 }

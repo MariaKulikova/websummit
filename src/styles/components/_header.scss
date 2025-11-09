@@ -2,45 +2,41 @@
 @import '../base/mixins';
 
 .header {
-  background-color: transparent;
-  position: relative;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-60%);
+  z-index: 100;
 
   &__container {
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 2rem $spacing-sm 0.5rem;
-
-    @include tablet {
-      padding: 2.5rem $spacing-lg 0.5rem;
-    }
+    @include glass-effect;
+    border-radius: 50%;
+    padding: $spacing-3xl $spacing-3xl;
+    width: 12rem;
+    height: 12rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: $spacing-md;
 
     @include desktop {
-      padding: 3rem $spacing-lg 0.5rem;
+      width: 16rem;
+      height: 16rem;
+      padding-bottom: $spacing-lg;
     }
   }
 
   &__inner {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__logo-wrapper {
-    display: flex;
+    justify-content: center;
     align-items: center;
   }
 
   &__logo {
-    height: 3rem;
+    height: 2rem;
 
     @include desktop {
-      height: 3.5rem;
+      height: 2.5rem;
     }
-    // No filter needed for light background - logo shows in original colors
-  }
-
-  &__button {
-    @include button-primary;
   }
 }

@@ -12,18 +12,23 @@
   position: relative;
   color: $color-text-primary;
   overflow: hidden;
-  padding-top: $spacing-lg;
-  padding-bottom: $spacing-lg;
+  padding-top: 8rem;
+  padding-bottom: $spacing-2xl;
+
+  @media (min-width: 640px) {
+    padding-top: 8rem;
+    padding-bottom: $spacing-2xl;
+  }
 
   @include desktop {
-    padding-top: $spacing-xl;
-    padding-bottom: $spacing-xl;
+    padding-top: 14rem;
+    padding-bottom: 4rem;
   }
 
   &__container {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 $spacing-sm;
+    padding: 0 $spacing-md;
 
     @include tablet {
       padding: 0 $spacing-lg;
@@ -41,7 +46,7 @@
     align-items: center;
 
     @include desktop {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 2fr 1fr;
       gap: $spacing-2xl;
     }
   }
@@ -51,15 +56,29 @@
     position: relative;
     z-index: 2;
     pointer-events: auto;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   &__title {
     @include typography-display;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-sm;
     font-weight: $font-weight-bold;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
+    text-transform: uppercase;
+    line-height: 1.25;
+    font-size: 2.25rem;
+
+    @media (min-width: 640px) {
+      font-size: 3rem;
+      margin-bottom: $spacing-md;
+    }
+
+    @include desktop {
+      font-size: 4rem;
+    }
   }
 
   &__highlight-blue {
@@ -73,28 +92,31 @@
   &__description {
     @include typography-body;
     color: $color-text-secondary;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-xl;
+    font-size: 1rem;
+
+    @media (min-width: 640px) {
+      margin-bottom: $spacing-xl;
+      font-size: 1.125rem;
+    }
+
+    @include desktop {
+      margin-bottom: $spacing-2xl;
+      font-size: 1.25rem;
+    }
   }
 
   &__buttons {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
+    gap: $spacing-md;
+    width: 100%;
 
     @media (min-width: 640px) {
       flex-direction: row;
       gap: $spacing-md;
+      width: auto;
     }
-  }
-
-  &__button-primary {
-    @include button-primary;
-    padding: $spacing-sm $spacing-lg;
-  }
-
-  &__button-outline {
-    @include button-outline;
-    padding: $spacing-sm $spacing-lg;
   }
 
   &__visual {
@@ -127,62 +149,85 @@
   }
 
   &__circle-inner {
-    position: fixed;
-    top: 10%;
-    right: 10%;
-    width: 16rem;
-    height: 16rem;
-    border-radius: 63% 37% 54% 46% / 55% 32% 52% 45%;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.03) 0%,
-      rgba(255, 255, 255, 0.01) 100%
-    );
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    animation: blob-morph 20s ease-in-out infinite;
-    z-index: 1;
-    pointer-events: auto;
-    transition: opacity 0.1s ease-out, transform 0.3s ease-out, cursor 0.2s ease;
-    cursor: default;
-    display: none;
+    position: relative;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
     align-items: center;
     justify-content: center;
 
+    // Мобильная версия - отдельный блок под хиро
+    margin: 0 auto;
+    margin-top: -4rem;
+    margin-bottom: -4rem;
+    width: 26rem;
+    height: 26rem;
+
     @media (min-width: 640px) {
-      display: flex;
-      width: 20rem;
-      height: 20rem;
+      // Планшет - абсолютная позиция справа сверху
+      position: absolute;
+      top: 8%;
+      bottom: auto;
+      left: auto;
+      right: 6%;
+      margin: 0;
+      transform: none;
+      width: 32rem;
+      height: 32rem;
     }
 
     @media (min-width: 1024px) {
-      width: 24rem;
-      height: 24rem;
-      top: 15%;
-      right: 15%;
+      // Десктоп - справа сверху
+      width: 40rem;
+      height: 40rem;
+      top: 3%;
+      right: 3%;
     }
   }
 
   &__mic-icon {
-    width: 4rem;
+    width: 3rem;
     height: auto;
     pointer-events: none;
     z-index: 2;
 
     @include tablet {
-      width: 5rem;
+      width: 3.5rem;
     }
 
     @include desktop {
-      width: 6rem;
+      width: 4rem;
+    }
+  }
+
+  &__sphere {
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    width: 12rem;
+    height: 12rem;
+    display: none;
+    z-index: 1;
+    pointer-events: none;
+
+    @media (min-width: 640px) {
+      display: block;
+      width: 14rem;
+      height: 14rem;
+    }
+
+    @media (min-width: 1024px) {
+      width: 16rem;
+      height: 16rem;
+      top: 20%;
+      left: 15%;
     }
   }
 }
 
 // Section base
 .section {
-  padding: $spacing-lg 0;
+  padding: $spacing-xl 0;
   color: $color-text-primary;
   position: relative;
   z-index: 2;
@@ -236,37 +281,25 @@
     @include desktop {
       border-radius: $radius-xl;
       padding: $spacing-2xl;
-      flex-direction: row;
-      gap: $spacing-2xl;
-      align-items: stretch;
-    }
-  }
-
-  &__arrow-wrapper {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__arrow {
-    width: 4rem;
-    height: auto;
-    display: block;
-
-    @include desktop {
-      width: 6rem;
     }
   }
 
   &__content {
     flex: 1;
-    text-align: left;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__title {
     @include typography-h1;
     margin-bottom: $spacing-xs;
+    font-size: 1.75rem;
+
+    @media (min-width: 640px) {
+      font-size: $font-size-h1;
+    }
   }
 
   &__note {
@@ -282,12 +315,15 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: $spacing-sm;
+    gap: $spacing-md;
     align-items: stretch;
+    width: 100%;
+    max-width: 40rem;
 
     @include desktop {
       flex-direction: row;
       align-items: center;
+      gap: $spacing-sm;
     }
   }
 
@@ -295,9 +331,12 @@
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: $color-text-primary;
-    padding: $spacing-sm $spacing-md;
+    padding: $spacing-sm $spacing-lg;
     border-radius: $radius-sm;
     width: 100%;
+    font-family: $font-family-base;
+    font-size: $font-size-body;
+    font-weight: 600;
     transition: border-color $transition-base;
 
     @include desktop {
@@ -312,31 +351,27 @@
 
     &::placeholder {
       color: $color-text-secondary;
+      font-weight: 400;
     }
   }
 
-  &__button {
-    @include button-primary;
-    padding: $spacing-sm $spacing-lg;
-    white-space: nowrap;
-    width: 100%;
-
-    @include desktop {
-      width: auto;
-      flex-shrink: 0;
-    }
+  &__success-message {
+    @include typography-h3;
+    color: $color-secondary;
+    margin: 0;
+    animation: fadeIn 0.5s ease-in;
+    text-align: center;
   }
+}
 
-  &__button-outline {
-    @include button-outline;
-    padding: $spacing-sm $spacing-lg;
-    white-space: nowrap;
-    width: 100%;
-
-    @include desktop {
-      width: auto;
-      flex-shrink: 0;
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -367,16 +402,23 @@
 
 // Why It Matters Section
 .why-it-matters {
-  padding-top: $spacing-xl;
+  // Убираем дополнительный padding-top, используем стандартный из .section
 
-  @include desktop {
-    padding-top: 0;
+  &__section-title {
+    @include typography-display;
+    color: $color-text-primary;
+    margin-bottom: $spacing-lg;
+    text-align: left;
+
+    @include desktop {
+      margin-bottom: $spacing-xl;
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    gap: $spacing-lg;
+    gap: $spacing-2xl;
 
     @include desktop {
       flex-direction: row;
@@ -440,6 +482,7 @@
   &__item-title {
     @include typography-h3;
     line-height: 1.2;
+    text-transform: uppercase;
   }
 
   &__item-text {

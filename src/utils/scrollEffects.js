@@ -22,21 +22,14 @@ export const initBlobScrollEffect = () => {
     if (isDragging) return; // Don't interfere during drag
 
     const scrollY = window.scrollY;
-    const maxScroll = 500; // Distance in pixels for effects
+    const maxScroll = 1000; // Distance in pixels for effects (увеличено для медленного исчезновения)
     const minOpacity = 0.15; // Minimum opacity (15% - still visible)
 
     // Calculate opacity
     const opacity = Math.max(minOpacity, 1 - (scrollY / maxScroll));
 
-    // Calculate scale (1 to 1.5)
-    const scrollScale = 1 + (scrollY / maxScroll) * 0.5;
-    currentScale = scrollScale;
-
-    // Calculate horizontal translation (0 to 100px right)
-    const scrollTranslateX = (scrollY / maxScroll) * 100;
-
+    // No scale or translation - keep blob fixed in position
     blob.style.opacity = opacity;
-    blob.style.transform = `translate(${scrollTranslateX}px, 0) scale(${currentScale})`;
   };
 
   const handleMouseEnter = () => {

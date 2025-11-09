@@ -91,33 +91,3 @@
   }
 }
 
-// Button mixins
-@mixin button-primary {
-  background: $color-secondary;
-  color: $color-text-primary;
-  padding: $spacing-sm $spacing-lg;
-  border-radius: $radius-sm;
-  font-weight: 600;
-  transition: all $transition-base;
-  cursor: pointer;
-  border: none;
-
-  &:hover {
-    opacity: 0.9;
-  }
-}
-
-@mixin button-outline {
-  background: transparent;
-  border: 1px solid $color-text-primary;
-  color: $color-text-primary;
-  padding: $spacing-sm $spacing-lg;
-  border-radius: $radius-sm;
-  font-weight: 600;
-  transition: all $transition-base;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}

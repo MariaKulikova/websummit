@@ -2,7 +2,7 @@
 @import '../base/mixins';
 
 .features {
-  padding: $spacing-lg 0;
+  padding: $spacing-xl 0;
   color: $color-text-primary;
   position: relative;
   z-index: 2;
@@ -26,14 +26,9 @@
   }
 
   &__wrapper {
-    @include glass-effect;
-    border-radius: $radius-lg;
-    padding: $spacing-md;
-
-    @include desktop {
-      border-radius: $radius-xl;
-      padding: $spacing-2xl;
-    }
+    background: transparent;
+    border: none;
+    padding: 0;
   }
 
   &__grid {
@@ -50,36 +45,23 @@
   &__card {
     background: transparent;
     border: none;
-    padding: $spacing-md;
+    padding: $spacing-md 0;
 
     @include desktop {
-      padding: $spacing-xl;
+      padding: $spacing-xl 0;
     }
   }
 
   &__icon {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: $spacing-md;
-    color: $color-text-primary;
-
-    svg {
-      width: 40px;
-      height: 40px;
-    }
+    display: none;
   }
 
   &__title {
-    font-size: $font-size-subtitle-mobile;
-    font-weight: $font-weight-semibold;
+    @include typography-h3;
     color: $color-text-primary;
     margin-bottom: $spacing-sm;
     line-height: 1.4;
-
-    @include desktop {
-      font-size: $font-size-subtitle;
-    }
+    text-transform: uppercase;
   }
 
   &__description {

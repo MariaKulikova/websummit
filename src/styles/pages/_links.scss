@@ -18,14 +18,14 @@
 
   &__logo {
     text-align: center;
-    margin-bottom: $spacing-xl;
+    margin-bottom: $spacing-3xl;
 
     img {
-      height: 4rem;
+      height: 6rem;
       width: auto;
 
       @include desktop {
-        height: 5rem;
+        height: 8rem;
       }
     }
   }
@@ -39,15 +39,15 @@
   &__link {
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.03) 0%,
-      rgba(255, 255, 255, 0.01) 100%
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%
     );
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow:
-      0 8px 32px 0 rgba(0, 0, 0, 0.37),
-      inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+      0 8px 32px 0 rgba(0, 0, 0, 0.5),
+      inset 0 1px 2px 0 rgba(255, 255, 255, 0.15);
     display: block;
     padding: $spacing-md $spacing-lg;
     border-radius: $radius-2xl;
@@ -57,8 +57,12 @@
 
     &:hover {
       transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.15);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 100%
+      );
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
     &:active {
