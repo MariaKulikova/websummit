@@ -59,7 +59,7 @@ const HomePage = () => {
                 Meet the AI that gives your website a&nbsp;voice
               </h1>
               <p className="hero__description">
-                No more boring "live chats" Turn browsing into a conversation
+                No more boring "live chats". Turn browsing into a conversation.
               </p>
               <div className="hero__buttons">
                 <Button variant="primary" onClick={scrollToCtaTop}>
@@ -102,7 +102,7 @@ const HomePage = () => {
             {/* Act */}
             <div className="how-it-works__card">
               <h3 className="how-it-works__card-title">Act</h3>
-              <p className="how-it-works__card-text">Empower your visitors to do more without leaving your website.</p>
+              <p className="how-it-works__card-text">Let your visitors do more without leaving your website - like compare products or book appointments.</p>
             </div>
           </div>
         </div>
