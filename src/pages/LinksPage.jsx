@@ -6,14 +6,9 @@ const LinksPage = () => {
       description: 'Experience voice AI in action'
     },
     {
-      title: 'WebVoice',
+      title: 'ShiftGears',
       url: 'https://webvoice.shiftgears.ai',
       description: 'AI voice assistant for websites'
-    },
-    {
-      title: 'ShiftGears',
-      url: 'https://shiftgears.ai',
-      description: 'Main website'
     },
     {
       title: 'LinkedIn',
@@ -21,7 +16,7 @@ const LinksPage = () => {
       description: 'Connect with us'
     },
     {
-      title: 'Email Us',
+      title: 'Email',
       url: 'mailto:websummit@shiftgears.ai',
       description: 'Get in touch'
     }
