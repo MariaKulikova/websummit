@@ -119,7 +119,7 @@ const HomePage = () => {
             <div className="why-it-matters__video-wrapper">
               <video
                 className="why-it-matters__video"
-                src="/assets/demo.mov"
+                src="/assets/demo.mp4"
                 autoPlay
                 loop
                 muted
